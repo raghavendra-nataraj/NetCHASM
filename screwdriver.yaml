@@ -1,0 +1,18 @@
+jobs:
+        main:
+                image: fedora29
+                requires: [~pr, ~commit]
+                steps:
+                        - install: dnf install -y openssl-devel c-ares c-ares-devel yaml-cpp yaml-cpp-devel libevent libevent-devel gcc-c++ make cmake rapidxml-devel curl-devel cppunit-devel lcov
+                        - mdbm:
+                               cd ..
+                               git clone -b  gcc8_error_supress git@github.com:raghavendra-nataraj/mdbm.git 
+                               cd mdbm
+                               make install
+                               cd ..
+                        - test:
+                                cd NetCHASM
+                                mkdir test
+                                cd test
+                                cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_FLAGS="-I/tmp/install/include" -DCMAKE_SHARED_LINKER_FLAGS="-L/tmp/install/lib64 -Wl,-rpath,/tmp/install/lib64" -DCMAKE_EXE_LINKER_FLAGS="-L/tmp/install/lib64 -Wl,-rpath,/tmp/install/lib64"
+                                make test
