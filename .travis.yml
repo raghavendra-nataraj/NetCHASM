@@ -6,7 +6,7 @@ matrix:
                                 sources:
                                         - ubuntu-toolchain-r test
                                 packages:
-                                        - g++ 9
+                                        - g++ 8
                 env:
                         - MATRIX_EVAL="CC=gcc-9 && CXX=g++-9"
 
