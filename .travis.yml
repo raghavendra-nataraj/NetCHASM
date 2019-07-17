@@ -1,8 +1,10 @@
 language: c++
-os: linux
-addons:
-        sources:
-                - ubuntu-toolchain-r test
-        packages:
-                - g++ 9
+matrix:
+        include:
+                os: linux
+                addons:
+                        sources:
+                                - ubuntu-toolchain-r test
+                        packages:
+                                - g++ 9
 script: make test
