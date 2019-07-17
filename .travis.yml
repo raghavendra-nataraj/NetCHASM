@@ -1,12 +1,12 @@
-language: c++
 matrix:
         include:
                 os: linux
                 addons:
-                        sources:
-                                - ubuntu-toolchain-r test
-                        packages:
-                                - g++ 9
+                        apt:
+                                sources:
+                                        - ubuntu-toolchain-r test
+                                packages:
+                                        - g++ 9
                 env:
                         - MATRIX_EVAL="CC=gcc-9 && CXX=g++-9"
 
