@@ -1,18 +1,16 @@
 sudo: required
 language: c++
-matrix:
-        include:
-                os: linux
-                addons:
-                        apt:
-                                sources:
-                                        - ubuntu-toolchain-r-test
-                                packages:
-                                        - g++-8
+addons:
+        apt:
+                sources:
+                        - ubuntu-toolchain-r-test
+                packages:
+                        - g++-8
 
 before_install:
+
+script: 
         - ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
         - ln -s /usr/bin/g++-8 /usr/local/bin/g++
         - g++ --version
-
-script: make test
+        - make test
