@@ -1,5 +1,5 @@
 sudo: required
-language: c++
+language: cpp
 addons:
         apt:
                 sources:
@@ -10,7 +10,7 @@ addons:
 before_install:
 
 script: 
-        - ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
-        - ln -s /usr/bin/g++-8 /usr/local/bin/g++
+        - sudo ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
+        - sudo ln -s /usr/bin/g++-8 /usr/local/bin/g++
         - g++ --version
         - make test
