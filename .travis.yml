@@ -8,10 +8,10 @@ matrix:
                                         - ubuntu-toolchain-r-test
                                 packages:
                                         - g++-8
-                env:
-                        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
 
 before_install:
-        - eval "${MATRIX_EVAL}"
+        - ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
+        - ln -s /usr/bin/g++-8 /usr/local/bin/g++
         - g++ --version
+
 script: make test
