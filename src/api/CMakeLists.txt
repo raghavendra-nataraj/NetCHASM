@@ -10,7 +10,7 @@ set(ASAN_FLAGS "-fsanitize=address -fno-omit-frame-pointer -static-libasan")
 
 add_library(netchasm SHARED ${SOURCES})
 
-set_target_properties(netchasm PROPERTIES SOVERSION "${MAJOR_VERSION}")
+set_target_properties(netchasm PROPERTIES SOVERSION "${MAJOR_VERSION}.${MINOR_VERSION}")
 set_target_properties(netchasm PROPERTIES COMPILE_FLAGS "${CPP_FLAGS} ")
 set_target_properties(netchasm PROPERTIES LINK_FLAGS "${CPP_FLAGS}")
 
@@ -24,5 +24,5 @@ set_property(TARGET netchasm PROPERTY CXX_STANDARD 14)
 
 target_link_libraries (netchasm netchasm_core)
 
-install(TARGETS netchasm LIBRARY DESTINATION lib64)
-
+install(TARGETS netchasm LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/NetCHASM DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})

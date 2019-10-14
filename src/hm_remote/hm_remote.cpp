@@ -41,8 +41,8 @@ char delim = 0;
 
 static void usage(char* name)
 {
-    string command = "man ";
-    command.append(name);
+    string command = "man hm_remote";
+    if(system(command.c_str()))
     {
         cout << "Usage: "<< name <<" [options] command" << endl << "Options:" << endl
                 << "-i      <socket-ip-address> [default: " << server_address << "]" << endl

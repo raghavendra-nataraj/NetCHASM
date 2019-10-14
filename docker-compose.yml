@@ -1,0 +1,13 @@
+version: '2.2'
+services:
+    test:
+        image: fedora_mdbm:latest
+        volumes:
+           - .:/NetCHASM
+        working_dir: /NetCHASM
+        command: make test
+    deploy:
+        image: netchasm:latest
+        build:
+            context: .
+            dockerfile: Dockerfile.release

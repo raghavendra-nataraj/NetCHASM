@@ -1,0 +1,16 @@
+on:
+    push:
+        branches:
+          - nc_1_2
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - name: Unit test
+          run: docker build -t raghavendranataraj/netchasm-test -f Dockerfile.dev .; docker run raghavendranataraj/netchasm-test /bin/bash -c "mkdir -p build_test; cd build_test; cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCOV=ON; make testbuild"
+        - name: Build Image
+          run: docker build -t raghavendranataraj/netchasm -f Dockerfile .
+        - name: Push Image
+          run: echo "${{ secrets.DOCKER_PASSWORK }}" | docker login -u "${{ secrets.DOCKER_ID }}" --password-stdin; docker push raghavendranataraj/netchasm

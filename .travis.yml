@@ -1,0 +1,20 @@
+os: linux arch: arm64
+services:
+  - docker
+
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+
+before_install:
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker build -t raghavendranataraj/netchasm-test -f Dockerfile.dev .
+
+script:
+  - docker run raghavendranataraj/netchasm-test /bin/bash -c "make test"
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: nc_1_2

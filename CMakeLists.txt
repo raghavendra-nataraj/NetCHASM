@@ -1,21 +1,26 @@
 cmake_minimum_required(VERSION 3.11)
 
 include(ExternalProject)
+include(GNUInstallDirs)
 enable_testing()
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--enable-new-dtags")
 set(OBJECT_DIR ${CMAKE_BINARY_DIR})
-set(CMAKE_INSTALL_PREFIX "/bin")
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "/usr" CACHE PATH "..." FORCE)
+endif()
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 set(MAJOR_VERSION 1)
-
+set(MINOR_VERSION 2)
 option(ASAN "enable ASAN options" OFF)
 option(COV "enable CODE COVERAGE options" OFF)
 option(SKIP-LIBEVENT "skip LIBEVENT library and related code" OFF)
 option(SKIP-ARES "skip ARES library and related code" OFF)
 option(SKIP-MDBM "skip MDBM library and related code" OFF)
-
+include_directories(/tmp/install/include)
 link_directories(/lib64)
-
+link_directories(/tmp/install/lib64)
 add_custom_target(build
     COMMAND ${CMAKE_MAKE_PROGRAM}
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}

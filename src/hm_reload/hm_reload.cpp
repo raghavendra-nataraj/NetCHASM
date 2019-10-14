@@ -15,8 +15,8 @@ using namespace std;
 
 static void usage(char* name)
 {
-    string command = "man ";
-    command.append(name);
+    string command = "man hm_reload";
+    if(system(command.c_str()))
     {
         cout << "Usage: "<< name<<" [options] ..." << endl << "Options:" << endl
                 << "-s      <socket-path> [default: " << HM_DEFAULT_USD_PATH << "]" << endl

@@ -1,0 +1,5 @@
+proto/netchasm/*.cc
+proto/netchasm/*.h
+api/netchasm/*.py
+build/
+build_test/

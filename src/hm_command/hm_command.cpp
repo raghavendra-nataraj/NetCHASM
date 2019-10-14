@@ -29,8 +29,8 @@ string server_path = HM_DEFAULT_USD_PATH;
 bool verbose = false;
 static void usage(char* name)
 {
-    string command = "man ";
-    command.append(name);
+    string command = "man hm_command";
+    if(system(command.c_str()))
     {
         cout << "Usage: "<< name <<" [options] command" << endl << "Options:" << endl
                 << "-s      <socket-path> [default: " << server_path << "]" << endl

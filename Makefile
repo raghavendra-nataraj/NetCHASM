@@ -31,5 +31,5 @@ test:
 
 all: build test doc
 
-install: build
-	cd build; make install; cd ..;
+install:
+	mkdir -p build; cd build; cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCMAKE_INSTALL_PREFIX=/usr; make install; cd ..;

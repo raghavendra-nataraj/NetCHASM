@@ -28,8 +28,8 @@ using namespace std;
 string server_path = HM_DEFAULT_USD_PATH;
 static void usage(char* name)
 {
-    string command = "man ";
-    command.append(name);
+    string command = "man hm_staticdns";
+    if(system(command.c_str()))
     {
         cout << "Usage: "<< name <<" [options] command" << endl << "Options:" << endl
             << "-s      <socket-path> [default: " << server_path << "]" << endl
