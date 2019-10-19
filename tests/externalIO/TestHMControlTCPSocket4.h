@@ -15,10 +15,12 @@ class TESTNAME : public CppUnit::TestFixture
 {
 
     CPPUNIT_TEST_SUITE(TESTNAME);
+#ifdef V6_TESTS
     CPPUNIT_TEST(test_cmdlstnr1);
     CPPUNIT_TEST(test_cmdlstnr2);
     CPPUNIT_TEST(test_cmdlstnr3);
     CPPUNIT_TEST(test_cmdlstnr4);
+#endif
     CPPUNIT_TEST_SUITE_END();
 
 

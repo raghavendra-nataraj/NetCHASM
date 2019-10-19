@@ -10,7 +10,7 @@ before_install:
   - docker build -t raghavendranataraj/netchasm-test -f Dockerfile.dev .
 
 script:
-  - docker run raghavendranataraj/netchasm-test /bin/bash -c "make test"
+  - docker run raghavendranataraj/netchasm-test /bin/bash -c "mkdir -p build_test; cd build_test; cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCOV=ON -DIPV6-TESTS=OFF; make testbuild"
 
 deploy:
   provider: script

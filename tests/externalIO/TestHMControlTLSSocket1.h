@@ -15,6 +15,7 @@ class TESTNAME : public CppUnit::TestFixture
 {
 
     CPPUNIT_TEST_SUITE(TESTNAME);
+#ifdef V6_TESTS
     CPPUNIT_TEST(test_cmdlstnr6);
     CPPUNIT_TEST(test_cmdlstnr7);
     CPPUNIT_TEST(test_cmdlstnr8);
@@ -23,6 +24,7 @@ class TESTNAME : public CppUnit::TestFixture
     CPPUNIT_TEST(test_cmdlstnr11);
     CPPUNIT_TEST(test_cmdlstnr12);
     CPPUNIT_TEST(test_cmdlstnr13);
+#endif
     CPPUNIT_TEST_SUITE_END();
 
 

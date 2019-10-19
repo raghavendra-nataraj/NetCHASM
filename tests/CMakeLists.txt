@@ -10,6 +10,10 @@ if(NOT SKIP-ARES)
   ADD_DEFINITIONS(-DUSE_ARES)
 endif()
 
+if(IPV6-TESTS)
+  ADD_DEFINITIONS(-DV6_TESTS)
+endif()
+
 execute_process (
     COMMAND export CPPUNITTESTENVARGS = LSAN_OPTIONS=suppressions=$(LSANSUPPRESSIONSFILE) ASAN_OPTIONS=fast_unwind_on_malloc=0:detect_stack_use_after_return=true:check_initialization_order=true
 )

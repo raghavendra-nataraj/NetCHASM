@@ -9,7 +9,7 @@ jobs:
         steps:
         - uses: actions/checkout@v1
         - name: Unit test
-          run: docker build -t raghavendranataraj/netchasm-test -f Dockerfile.dev .; docker run raghavendranataraj/netchasm-test /bin/bash -c "mkdir -p build_test; cd build_test; cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCOV=ON; make testbuild"
+          run: docker build -t raghavendranataraj/netchasm-test -f Dockerfile.dev .; docker run raghavendranataraj/netchasm-test /bin/bash -c "mkdir -p build_test; cd build_test; cmake .. -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DCOV=ON -DIPV6-TESTS=OFF; make testbuild"
         - name: Build Image
           run: docker build -t raghavendranataraj/netchasm -f Dockerfile .
         - name: Push Image
