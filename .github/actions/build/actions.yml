@@ -1,0 +1,8 @@
+name: "build"
+
+decription: "Build check"
+
+runs:
+    using: "docker"
+    image: 'Dockerfile'
+    entrypoint:  '["/bin/bash" ,"-c", "make build"]'

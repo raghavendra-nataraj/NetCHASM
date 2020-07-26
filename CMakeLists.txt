@@ -22,7 +22,10 @@ option(SKIP-MDBM "skip MDBM library and related code" OFF)
 option(SKIP-KAFKA "skip KAFKA library and related code" OFF)
 option(SKIP-IPV6 "skip IPv6 tests" OFF)
 
+include_directories(${INCLUDE_PATHS})
+link_directories(${LINK_PATHS})
 link_directories(/lib64)
+
 if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
     INCLUDE(InstallRequiredSystemLibraries)
     set(CPACK_RPM_COMPONENT_INSTALL ON)
