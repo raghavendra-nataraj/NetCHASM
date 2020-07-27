@@ -2,7 +2,7 @@ name: NetCHASM CI
 on: [push]
 
 jobs:
-  action:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: mdbm
@@ -18,3 +18,51 @@ jobs:
         uses: ./NetCHASM/.github/actions/build
         with:
           command: "build"
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mdbm
+        uses: actions/checkout@v2
+        with:
+          repository: timrc-git/mdbm
+          path: mdbm
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          path: NetCHASM
+      - name: package
+        uses: ./NetCHASM/.github/actions/build
+        with:
+          command: "package"
+  slimbuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mdbm
+        uses: actions/checkout@v2
+        with:
+          repository: timrc-git/mdbm
+          path: mdbm
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          path: NetCHASM
+      - name: slimbuild
+        uses: ./NetCHASM/.github/actions/build
+        with:
+          command: "slimbuild"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mdbm
+        uses: actions/checkout@v2
+        with:
+          repository: timrc-git/mdbm
+          path: mdbm
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          path: NetCHASM
+      - name: test
+        uses: ./NetCHASM/.github/actions/build
+        with:
+          command: "test"
