@@ -1,4 +1,4 @@
-name: NetCHASM CI
+name: build
 on: [push]
 
 jobs:
