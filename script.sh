@@ -1,3 +1,4 @@
+#!/bin/bash -l
 cd mdbm
 make install
 cd ../NetCHASM
