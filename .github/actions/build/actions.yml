@@ -1,9 +1,13 @@
 name: "build"
 
 decription: "Build check"
+  
+inputs:
+    COMMAND:
+      description: "command"
+      required: true
+      default: "build"
 
 runs:
     using: "docker"
     image: 'Dockerfile'
-    args:
-        - 'build'

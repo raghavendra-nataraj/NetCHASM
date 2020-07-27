@@ -16,3 +16,5 @@ jobs:
           path: NetCHASM
       - name: build
         uses: ./NetCHASM/.github/actions/build
+        with:
+          command: "build"
