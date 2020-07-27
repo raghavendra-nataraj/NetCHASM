@@ -3,6 +3,8 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
+[![Actions Status](https://github.com/raghavendra-nataraj/NetCHASM/workflows/NetCHASM%20CI/badge.svg)](https://github.com/raghavendra-nataraj/NetCHASM/actions)
+
 NetCHASM conducts periodic health checks and retrieves load-feed-back data from distributed servers. It stores the information in a backend database and exposes the results through an API. The daemon allows checks over all major protocols HTTP, HTTPS, FTP, FTPS, TCP, and DNS. NetCHASM provides C++ APIS to access the backend databases, and APIs to query the running Daemon in C++, Python and Perl. The Daemon retrieve load-feedback in addition to out-of-band information to control server status for traffic load balancers. The Daemon is configurage using simple YAML configs.
 
 
